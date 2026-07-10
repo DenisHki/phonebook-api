@@ -1,112 +1,76 @@
-# Full Stack Open — Part 3: Phonebook Backend
+# Phonebook API
 
-This repository contains my implementation of **Part 3** of the University of Helsinki’s **Full Stack Open** course.  
-Part 3 focuses on building and deploying a backend service using Node.js and Express, integrating it with a MongoDB database, and connecting it to the frontend Phonebook application.
+A REST API for a contacts/phonebook application, built with Node.js, Express, and MongoDB (via Mongoose). Handles storing, retrieving, updating, and deleting contacts, and serves the built frontend in production.
 
-This backend is deployed and publicly accessible.
+🔗 **Live app:** [full-stack-open-part3-u6p2.onrender.com](https://full-stack-open-part3-u6p2.onrender.com/)
 
----
+## About this project
 
-## 🌐 Live Application
+Originally built as part of the Full Stack Open course (University of Helsinki), this repo covers the backend I implemented: a REST API with a MongoDB database, environment-based configuration, and a production deployment on Render, serving a phonebook frontend.
 
-**Phonebook App (Frontend + Backend):**  
-https://full-stack-open-part3-u6p2.onrender.com/
+## Features
 
----
+- Full CRUD REST API for contacts (create, read, update, delete)
+- MongoDB persistence via Mongoose schemas/models
+- Environment-based configuration (`.env` for DB connection string, port)
+- Centralized error handling and request logging middleware
+- Serves the compiled frontend build in production, so the API and UI run from a single deployed service
 
-## 📚 Part Overview
+## Tech stack
 
-Part 3 covers the fundamentals of backend development:
+| Technology | Purpose |
+|---|---|
+| Node.js | Runtime |
+| Express | Web server / routing |
+| MongoDB | Database |
+| Mongoose | ODM / schema modeling |
+| dotenv | Environment variable management |
+| Render | Deployment |
 
-- Building a REST API with Express  
-- Structuring a Node.js server  
-- Connecting to MongoDB using Mongoose  
-- Handling environment variables  
-- Implementing CRUD operations  
-- Error handling and middleware  
-- Deploying a full‑stack application  
-- Working with production builds  
+## API endpoints
 
-This repository contains the backend code that powers the Phonebook application.
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/api/persons` | Get all contacts |
+| GET | `/api/persons/:id` | Get a single contact |
+| POST | `/api/persons` | Add a new contact |
+| DELETE | `/api/persons/:id` | Delete a contact |
 
----
+## Project structure
 
-## 📂 Project Structure
+```
+├── dist/            # compiled production files
+├── uibuild/          # production frontend build (served by Express)
+├── models/          # Mongoose model definitions
+├── requests/        # sample REST API requests for manual testing
+├── index.js         # Express server entry point
+├── mongo.js         # standalone script for interacting with MongoDB
+└── eslint.config.mjs
+```
 
-- **dist/** – compiled production files  
-- **uibuild/** – production-ready frontend (copied from Part 2)  
-- **models/** – Mongoose model definitions  
-- **requests/** – REST API test requests  
-- **index.js** – Express server entry point  
-- **mongo.js** – script for interacting with MongoDB  
-- **eslint.config.mjs** – ESLint configuration  
-- **package.json** – project metadata & dependencies  
-- **package-lock.json**  
-- **.gitignore**  
-- **README.md**
+## Running locally
 
----
-
-## 🚀 Running the Project Locally
-
-### 1. Install dependencies
+```bash
+git clone https://github.com/DenisHki/phonebook-api.git
+cd phonebook-api
 npm install
-
-
-### 2. Set up environment variables
+```
 
 Create a `.env` file:
+
+```
 MONGODB_URI=your_mongodb_connection_string
 PORT=3001
+```
 
+Start the server:
 
-### 3. Start the server
+```bash
 npm start
+```
 
-The server will run at:
-http://localhost:3001
+The server runs at [http://localhost:3001](http://localhost:3001).
 
+## Background
 
----
-
-## 🔌 API Endpoints
-
-### Get a single person
-GET /api/persons/:id
-
-### Get all persons
-GET /api/persons
-
-### Add a new person
-POST /api/persons
-
-### Delete a person
-DELETE /api/persons/:id
-
-
----
-
-## 🧰 Technologies Used
-
-- Node.js  
-- Express  
-- MongoDB  
-- Mongoose  
-- dotenv  
-- Render (deployment)  
-
----
-
-## 📝 Notes
-
-- This backend is designed to work with the Phonebook frontend from **Part 2**.  
-- The `build/` folder contains the production build of the frontend.  
-- The project is deployed on Render, and the API is publicly accessible.
-
----
-
-## 📜 Course
-
-This project is part of the **Full Stack Open** course by the University of Helsinki.
-
-
+This project was built while completing the [Full Stack Open](https://fullstackopen.com/) course by the University of Helsinki, which covers modern web development with React, Node.js, and MongoDB. This repo represents the backend/deployment portion of that work.
