@@ -2,8 +2,6 @@
 
 A REST API for a contacts/phonebook application, built with Node.js, Express, and MongoDB (via Mongoose). Handles storing, retrieving, updating, and deleting contacts, and serves the built frontend in production.
 
-🔗 **Live app:** [full-stack-open-part3-u6p2.onrender.com](https://full-stack-open-part3-u6p2.onrender.com/)
-
 ## About this project
 
 Originally built as part of the Full Stack Open course (University of Helsinki), this repo covers the backend I implemented: a REST API with a MongoDB database, environment-based configuration, and a production deployment on Render, serving a phonebook frontend.
